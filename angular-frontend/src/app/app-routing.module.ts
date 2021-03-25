@@ -22,7 +22,9 @@ import { MedicineComponent } from './components/medicine/medicine.component';
 import { MedicineAddComponent } from './components/medicine/medicine-add/medicine-add.component';
 import { MedicineDetailsComponent } from './components/medicine/medicine-details/medicine-details.component';
 import { MedicineEditComponent } from './components/medicine/medicine-edit/medicine-edit.component';
-
+import { InvoiceListComponent} from './components/invoice/invoice-list/invoice-list.component';
+import {InvoiceComponent} from './components/invoice/invoice.component';
+import {InvoiceAddComponent} from './components/invoice/invoice-add/invoice-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -49,6 +51,14 @@ const routes: Routes = [
   {
     path: 'reports', component: ReportComponent, children: [
       { path: 'add', component: ReportAddComponent },
+      { path: 'add/:id', component: ReportAddComponent },
+      { path: 'details/:id', component: ReportDetailsComponent },
+      { path: 'update/:id', component: ReportEditComponent }
+    ]
+  },
+  {
+    path: 'invoices', component: InvoiceComponent, children: [
+      { path: 'add', component: InvoiceAddComponent },
       { path: 'add/:id', component: ReportAddComponent },
       { path: 'details/:id', component: ReportDetailsComponent },
       { path: 'update/:id', component: ReportEditComponent }

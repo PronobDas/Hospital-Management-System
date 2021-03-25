@@ -1,0 +1,83 @@
+<div class="card shadow">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="reportForm" (ngSubmit)="onSubmit()">
+          <!-- Buttons --->
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary" (click)="save()">Save changes</button>
+              <button type="button" class="btn btn-danger ml-2" (click)="cancelAdd()">Cancel</button>
+            </div>
+          </div>
+
+          <!-- Input Fields --->
+
+          <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 145px;">Patient Id</span>
+            </div>
+            <select formControlName="patientId" class="form-control">
+              <option *ngFor="let patient of patients| async;"
+                      [value]=[patient.id]>{{ patient.name }} [ {{ patient.dob | date:'dd.MM.yyyy' }} ]
+              </option>
+              <option value="" selected>Not set</option>
+            </select>
+          </div>
+
+          <!-- Input Fields --->
+
+          <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 145px;">Doctor Id</span>
+            </div>
+            <select formControlName="doctorId" class="form-control">
+              <option *ngFor="let doctor of doctors| async;"
+                      [value]=[doctor.id]>{{ doctor.doctorname }} [ {{ doctor.hospital_name }} ]
+              </option>
+              <option value="" selected>Not set</option>
+            </select>
+          </div>
+
+
+          <!-- Add Buttons -->
+
+          <div class="col btn-group">
+
+            <button (click)="addTests()" type="button" class="btn btn-dark m-1">Tests<i
+              class="fas fa-plus ml-1"></i>
+            </button>
+
+          </div>
+
+          <!-- Input Fields --->
+
+          <div formArrayName="tests">
+            <div *ngFor="let test of tests.controls; let i = index" class="form-group mt-3 mb-3">
+              <h5 class="text-center">Tests:</h5>
+              <div formGroupName="{{ i }}" class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px;">Test</span>
+                </div>
+                <select formControlName="testName" class="form-control">
+                  <option *ngFor="let commonTest of testList" [value]="commonTest">
+                    {{ commonTest }}
+                  </option>
+                  <option value="" selected>Test List</option>
+                </select>
+                <input placeholder="Description" formControlName="description" type="text" class="form-control">
+                <button type="button" class="btn btn-secondary" (click)="removeTests(i)">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input Fields --->
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

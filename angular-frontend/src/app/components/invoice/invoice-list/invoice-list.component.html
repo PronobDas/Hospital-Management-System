@@ -1,0 +1,66 @@
+<div class="card shadow">
+  <div class="card-body">
+    <h4><i class="fas fa-users"></i> Patient Invoice List:</h4>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Dob</th>
+        <th scope="col">Contact</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let invoice of invoices | async; let i = index" style="cursor: pointer; "
+          (click)="invoiceDetails(invoice.id)">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ getPatientName(invoice.patientId) }}</td>
+<!--        <td>{{ getPatientDob(report.patientid) | date:'dd.MM.yyyy' }}</td>-->
+<!--        <td>0{{ getPatientContact(report.patientid) }}</td>-->
+      </tr>
+      </tbody>
+    </table>
+    <hr>
+    <button type="button" class="btn btn-primary mt-2" (click)="addInvoice()"><i class="fas fa-plus"></i> New Invoice
+    </button>
+    <!-- Find by name dob --->
+    <hr>
+    <div class="input-group mb-3">
+      <label for="input1"></label>
+      <input id="input1" #input1 type="text" class="form-control mr-1" placeholder="Enter name">
+      <label for="input2"></label>
+      <input id="input2" #input2 type="text" class="form-control mr-1" placeholder="YYYY-MM-DD">
+      <div class="input-group-append">
+<!--        <button class="btn btn-secondary ml-1" type="button" data-toggle="collapse"-->
+<!--                data-target="#collapseExampleNameDob"-->
+<!--                aria-expanded="false" aria-controls="collapseExample"-->
+<!--                (click)="getReportByPatientNameDob(input1.value,input2.value)"><i class="fas fa-search"></i> Find-->
+<!--        </button>-->
+      </div>
+    </div>
+    <div class="collapse" id="collapseExampleNameDob">
+      <table class="table table-hover mt-2">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Dob</th>
+          <th scope="col">Contact</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="cursor: pointer; ">
+<!--            (click)="reportDetails(reportByNameDob.id)">-->
+<!--          <td>{{ getPatientName(reportByNameDob.patientid) }}</td>-->
+<!--          <td>{{ getPatientDob(reportByNameDob.patientid) | date:'dd.MM.yyyy' }}</td>-->
+<!--          <td>0{{ getPatientContact(reportByNameDob.patientid) }}</td>-->
+        </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-danger p-1" type="button" data-toggle="collapse" data-target="#collapseExampleNameDob"
+              aria-expanded="false" aria-controls="collapseExample"> Close <i class="fas fa-times-circle"></i>
+      </button>
+    </div>
+    <hr>
+  </div>
+</div>
+
