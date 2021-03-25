@@ -1,0 +1,47 @@
+<div class="card shadow">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="medicineForm" (ngSubmit)="onSubmit()">
+          <!-- Buttons --->
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary" [disabled]="medicineForm.invalid">Save changes</button>
+              <button type="button" class="btn btn-danger ml-2" (click)="cancelAdd()">Cancel</button>
+            </div>
+          </div>
+
+          <!-- Input Fields --->
+
+          <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 145px;">Drug name</span>
+            </div>
+            <input formControlName="drugname" type="text" class="form-control">
+          </div>
+
+          <!-- Input Fields --->
+
+          <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 145px;">Unit</span>
+            </div>
+            <input formControlName="unit" type="number" class="form-control">
+          </div>
+
+          <!-- Input Fields --->
+
+          <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 145px;">Dosage</span>
+            </div>
+            <input formControlName="dosage" type="number" class="form-control">
+          </div>
+
+          <!-- Input Fields --->
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+<div class="card shadow">
+  <div class="card-body">
+    <h4><i class="fas fa-users"></i>  Patient List:</h4>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Dob</th>
+        <th scope="col">Contact</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let patient of patients | async; let i = index" style="cursor: pointer; "
+          (click)="patientDetails(patient.id)">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ patient.name }}</td>
+        <td>{{ patient.dob | date:'dd.MM.yyyy' }}</td>
+        <td>0{{ patient.contact }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <hr>
+    <button type="button" class="btn btn-primary mt-2" (click)="addPatient()"> <i class="fas fa-plus"></i>  Add new Patient</button>
+    <hr>
+    <!----->
+    <div class="input-group mb-3">
+      <label for="input"></label>
+      <input id="input" #input type="text" class="form-control mr-1" placeholder="Enter name">
+      <div class="input-group-append">
+        <button class="btn btn-secondary ml-1" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample"
+                (click)="getPatientsByName(input.value)"><i class="fas fa-search"></i> Find
+        </button>
+      </div>
+    </div>
+    <!-- Results --->
+    <div class="collapse" id="collapseExample">
+      <table class="table table-hover mt-2">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Dob</th>
+          <th scope="col">Contact</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let patientByName of patientsByName | async; let i = index" style="cursor: pointer; "
+            (click)="patientDetails(patientByName.id)">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ patientByName.name }}</td>
+          <td>{{ patientByName.dob | date:'dd.MM.yyyy' }}</td>
+          <td>0{{ patientByName.contact }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-danger p-1" type="button" data-toggle="collapse" data-target="#collapseExample"
+              aria-expanded="false" aria-controls="collapseExample"> Close <i class="fas fa-times-circle"></i>
+      </button>
+    </div>
+    <!-- Results --->
+    <hr>
+    <div class="input-group mb-3">
+      <label for="input1"></label>
+      <input id="input1" #input1 type="text" class="form-control mr-1" placeholder="Enter name">
+      <label for="input2"></label>
+      <input id="input2" #input2 type="text" class="form-control mr-1" placeholder="YYYY-MM-DD">
+      <div class="input-group-append">
+        <button class="btn btn-secondary ml-1" type="button" data-toggle="collapse"
+                data-target="#collapseExampleNameDob"
+                aria-expanded="false" aria-controls="collapseExample"
+                (click)="getPatientByNameDob(input1.value,input2.value)"><i class="fas fa-search"></i> Find
+        </button>
+      </div>
+    </div>
+    <!-- Results --->
+    <div class="collapse" id="collapseExampleNameDob">
+      <table class="table table-hover mt-2">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Dob</th>
+          <th scope="col">Contact</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="cursor: pointer; "
+            (click)="patientDetails(patientByNameDob.id)">
+          <td>{{ patientByNameDob.name }}</td>
+          <td>{{ patientByNameDob.dob | date:'dd.MM.yyyy' }}</td>
+          <td>0{{ patientByNameDob.contact }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-danger p-1" type="button" data-toggle="collapse" data-target="#collapseExampleNameDob"
+              aria-expanded="false" aria-controls="collapseExample"> Close <i class="fas fa-times-circle"></i>
+      </button>
+    </div>
+    <hr>
+    <!-- Results --->
+  </div>
+</div>

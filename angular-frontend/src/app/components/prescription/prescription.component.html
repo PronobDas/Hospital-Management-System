@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+  <div class="card shadow" style="width: 100%;">
+    <div class="card-body m-5">
+      <div class="btn-group float-right">
+        <button type="button" class="btn btn-primary" (click)="downloadPDF()">Download PDF <i class="far fa-file-pdf ml-2"></i></button>
+        <button type="button" (click)="cancel()" class="btn btn-danger ml-2">Cancel</button>
+      </div>
+      <form id="pdf" #pdf class="form-group">
+        <h1 class="text-primary"><b><i>New Life Hospital</i></b></h1>
+        <h2 class="text-danger">Medical prescription</h2>
+        <table class="table table-bordered w-100">
+          <thead>
+          </thead>
+          <tbody>
+          <tr>
+            <td colspan="2"><b>Patient's Name: {{ patient.name }}</b></td>
+            <td colspan="3"><b>Date: {{currentDate | date:'dd-MM-yyyy'}}</b></td>
+          </tr>
+          <tr>
+            <td><b>S/o | D/o | W/o</b></td>
+            <td colspan="5"><b>???????</b></td>
+          </tr>
+          <tr>
+            <td><b> Date of Birth: {{ patient.dob | date:'dd.MM.yyyy' }} </b></td>
+            <td><b>Age: {{ patient.age }}</b></td>
+            <td><b>Sex: {{ patient.gender }}</b></td>
+          </tr>
+          <tr>
+            <td colspan="2"><b>Health care no: {{ patient.healthinsuranceno }}</b></td>
+            <td colspan="3"><b>Health provider: {{ patient.healthcareprovider }}</b></td>
+          </tr>
+          <tr>
+            <td colspan="5"><b>Patient Address: {{ patient.patientaddress }}</b></td>
+          </tr>
+          <tr>
+            <td class="text-center" colspan="5"><b>Patient Contact: {{ patient.contact }}</b></td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              <b>Diagnosed with:</b><textarea type="text" rows="4" class="form-control" id="usr"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Blood Pressure: {{ report.bloodpressure }}</b></td>
+            <td><b>Pulse rate: {{ report.pulserate }}</b></td>
+            <td><b>Weight: {{ report.weight }} Kg</b></td>
+          </tr>
+          <tr>
+            <td><b>Allergies: </b></td>
+            <td *ngFor="let allergy of report.allergies; let i =index"><b>{{ i + 1 }}. {{ allergy }}</b></td>
+          </tr>
+          <tr>
+            <td><b>Disabilities: </b></td>
+            <td *ngFor="let disability of report.disabilities; let i =index"><b>{{ i + 1 }}. {{ disability }}</b></td>
+          </tr>
+          <tr *ngFor="let medicine of report.medicines; let i = index">
+            <td><b>{{ i + 1 }}. Drug name: {{ medicine.drugname }}</b></td>
+            <td><b>Unit: {{ medicine.unit }}</b></td>
+            <td><b>Dosage: {{ medicine.dosage }}</b></td>
+          </tr>
+          <tr>
+            <td colspan="5" class="text-center"><b>Diets to follow:</b></td>
+          </tr>
+          <tr *ngFor="let diet of report.diets; let i = index">
+            <td colspan="1"><b>{{ i + 1 }}. Diet name: {{ diet.dietname }}</b></td>
+            <td colspan="2"><b>Diet: {{ diet.description }}</b></td>
+          </tr>
+          <tr>
+            <td colspan="5"><b>Patient history: {{ report.patienthistory}}</b></td>
+          </tr>
+          <tr>
+            <td colspan="5"><b>Follow up doctor: {{ followUpDoctor.doctorname }} </b></td>
+          </tr>
+          </tbody>
+          <tr>
+            <td colspan="5"><b>Doctor signature:</b></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

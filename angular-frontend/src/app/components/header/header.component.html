@@ -1,0 +1,36 @@
+<!--Navbar-->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-2">
+  <a routerLink="home" class="navbar-brand" style="margin-left: 45%"><b><i
+    class="fas fa-spinner fa-pulse"></i> New Life Hospital <i
+    class="fas fa-clinic-medical"></i></b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto" style="margin-right: 10%">
+      <li class="nav-item dropdown ml-auto" routerLinkActive="active">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown3" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-book"></i> Tutorials
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="cursor: pointer;">
+          <a routerLink="tutorials" class="dropdown-item">Tutorials List</a>
+          <a routerLink="create" class="dropdown-item">Add Tutorial</a>
+        </div>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/medicines"><i class="fas fa-capsules"></i> Medicines</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/doctors"><i class="fas fa-user-md"></i> Doctors</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/patients"><i class="fas fa-user-injured"></i> Patients</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/reports"><i class="fas fa-address-book"></i> Reports</a>
+      </li>
+    </ul>
+  </div>
+</nav>

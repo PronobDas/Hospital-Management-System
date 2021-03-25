@@ -1,0 +1,119 @@
+<div class="card shadow">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form (ngSubmit)="onSubmit()" #f2=ngForm>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary" [disabled]="f2.invalid"><i class="fas fa-save"></i> Save
+                changes
+              </button>
+              <button type="button" class="btn btn-danger ml-2" (click)="list()">Cancel <i
+                class="far fa-times-circle"></i></button>
+            </div>
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 120px;">Patient name</span>
+            </div>
+            <label for="name"></label><input type="text" class="form-control" id="name" required
+                                             [(ngModel)]="patient.name"
+                                             name="name">
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 120px;">Date of birth</span>
+            </div>
+            <label for="dob"></label><input type="text" class="form-control" id="dob" required
+                                            [(ngModel)]="patient.dob"
+                                            name="dob">
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 120px;">Age</span>
+            </div>
+            <label for="age"></label><input type="number" class="form-control" id="age" required
+                                            [(ngModel)]="patient.age"
+                                            name="age">
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 120px;">Gender</span>
+            </div>
+            <label for="gender"></label><select id="gender" name="gender" class="form-control"
+                                                [(ngModel)]="patient.gender">
+            <option [value]="Male">Male</option>
+            <option [value]="Female">Female</option>
+          </select>
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 120px;">Occupation</span>
+            </div>
+            <label for="occupation"></label><input type="text" class="form-control" id="occupation" required
+                                                   [(ngModel)]="patient.occupation"
+                                                   name="occupation">
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 120px;">Contact no</span>
+            </div>
+            <label for="contact"></label><input type="tel" class="form-control" id="contact"
+                                                required
+                                                [(ngModel)]="patient.contact"
+                                                name="contact">
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 120px;">Doctor</span>
+            </div>
+            <label for="doctorid"></label><select name="doctorid" id="doctorid" [(ngModel)]="patient.doctorid"
+                                                  class="form-control">
+            <option *ngFor="let doctor of doctors| async;"
+                    [value]=[doctor.id]>{{ doctor.doctorname }}
+            </option>
+            <option [value]=null>Not set</option>
+          </select>
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 120px;">Address</span>
+            </div>
+            <label for="address"></label><input type="text" class="form-control" id="address" required
+                                                [(ngModel)]="patient.patientaddress"
+                                                name="address">
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 165px;">Health insurance no</span>
+            </div>
+            <label for="healthinsuranceno"></label><input type="number" class="form-control" id="healthinsuranceno"
+                                                          required
+                                                          [(ngModel)]="patient.healthinsuranceno"
+                                                          name="healthinsuranceno">
+          </div>
+          <!---->
+          <div class="input-group mt-2 mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 165px;">Health care provider</span>
+            </div>
+            <label for="healthcareprovider"></label><input type="text" class="form-control" id="healthcareprovider"
+                                                           required
+                                                           [(ngModel)]="patient.healthcareprovider"
+                                                           name="healthcareprovider">
+          </div>
+          <!---->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

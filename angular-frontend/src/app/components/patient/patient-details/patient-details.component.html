@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+  <div class="card shadow" style="width: 100%;">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-4"><h5 class="card-title mx-auto">Patient Details:</h5></div>
+        <div class="col">
+          <button class="btn btn-success" (click)="updatePatient(patient.id)"><i class="fas fa-user-edit"></i> Update
+          </button>
+          <button class="btn btn-primary ml-2" (click)="generateReport(patient.id)"><i class="fas fa-user-edit"></i>
+            Generate Report
+          </button>
+          <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#exampleModal"><i
+            class="fas fa-trash"></i> Delete
+          </button>
+          <!-- Delete Confirmation Modal-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p><b>Are you sure you want to delete?</b></p>
+                  <p>
+                    Patient name: <b>{{ patient.name }}</b><br>
+                    Date of Birth: <b>{{ patient.dob | date:'dd.MM.yyyy' }}</b><br>
+                    Contact: <b>+880 {{ patient.contact }}</b>
+                  </p>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deletePatient(patient.id)">
+                    <i class="fas fa-trash"></i> Delete
+                  </button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="far fa-times-circle"></i>
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Delete Confirmation Modal-->
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Name: </h6></div>
+        <div class="col">{{ patient.name }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Date of birth: </h6></div>
+        <div class="col">{{ patient.dob | date:'dd.MM.yyyy' }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Age: </h6></div>
+        <div class="col">{{ patient.age }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Gender:</h6></div>
+        <div class="col">{{ patient.gender }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Occupation:</h6></div>
+        <div class="col">{{ patient.occupation }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Health insurance no:</h6></div>
+        <div class="col">{{ patient.healthinsuranceno }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Health care provider:</h6></div>
+        <div class="col">{{ patient.healthcareprovider }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Patientaddress:</h6></div>
+        <div class="col">{{ patient.patientaddress }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Contact:</h6></div>
+        <div class="col">+880 {{ patient.contact }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6>Assigned doctor id:</h6></div>
+        <div class="col">{{ doctor.doctorname }} ( {{ doctor.hospital_name }} )</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5"><h6><i>Created date:</i></h6></div>
+        <div class="col"><i>{{ patient.entrydate | date:'dd.MM.yyyy' }}</i></div>
+      </div>
+    </div>
+  </div>
+</div>
+

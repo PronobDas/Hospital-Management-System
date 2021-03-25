@@ -1,0 +1,64 @@
+<div class="card shadow">
+  <div class="card-body">
+    <h4><i class="fas fa-users"></i> Doctor List:</h4>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Speciality</th>
+        <th scope="col">Hospital</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let doctor of doctors | async; let i = index" style="cursor: pointer; "
+          (click)="doctorDetails(doctor.id)">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ doctor.doctorname }}</td>
+        <td>{{ doctor.speciality }}</td>
+        <td>{{ doctor.hospital_name }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <hr>
+    <button type="button" class="btn btn-primary mt-2" (click)="addDoctor()"><i class="fas fa-plus"></i> Add new doctor
+    </button>
+    <hr>
+    <!--Test-->
+    <div class="input-group mb-3">
+      <label for="input"></label>
+      <input id="input" #input type="text" class="form-control mr-1" placeholder="Enter doctor name">
+      <div class="input-group-append">
+        <button class="btn btn-secondary ml-1" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample"
+                (click)="getDoctorsByName(input.value)"><i class="fas fa-search"></i> Find
+        </button>
+      </div>
+    </div>
+    <!--Test-->
+    <div class="collapse" id="collapseExample">
+      <table class="table table-hover mt-2">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Speciality</th>
+          <th scope="col">Hospital</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let doctorByName of doctorsByName | async; let i = index" style="cursor: pointer; "
+            (click)="doctorDetails(doctorByName.id)">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ doctorByName.doctorname }}</td>
+          <td>{{ doctorByName.speciality }}</td>
+          <td>{{ doctorByName.hospital_name }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-danger p-1" type="button" data-toggle="collapse" data-target="#collapseExample"
+              aria-expanded="false" aria-controls="collapseExample"> Close <i class="fas fa-times-circle"></i>
+      </button>
+    </div>
+  </div>
+</div>
