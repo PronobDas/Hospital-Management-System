@@ -58,11 +58,7 @@ public class InvoiceController {
     @PostMapping("/invoices")
     public ResponseEntity<Invoice> createInvoice(@RequestBody Invoice invoice) {
         try {
-            Invoice _invoice = invoiceRepository.save(new Invoice(
-                    invoice.getPatientId(),
-                    invoice.getDoctorId(),
-                    invoice.getTests()
-            ));
+            Invoice _invoice = invoiceRepository.save(invoice);
             return new ResponseEntity<>(_invoice, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

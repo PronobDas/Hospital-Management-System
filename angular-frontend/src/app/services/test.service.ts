@@ -11,7 +11,7 @@ const baseUrl = 'http://localhost:8080/api/tests';
 
 // @ts-ignore
 export class TestService {
-  private tests: string[] = [
+  public tests: string[] = [
     'A',
     'B',
     'C',
