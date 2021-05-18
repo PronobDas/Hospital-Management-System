@@ -1,0 +1,56 @@
+<div class="card shadow">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+          <!-- Buttons --->
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary" [disabled]="testForm.invalid">Save changes</button>
+              <button type="button" class="btn btn-danger ml-2" (click)="cancelAdd()">Cancel</button>
+            </div>
+          </div>
+
+          <!-- Input Fields --->
+
+          <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 145px;">Test name</span>
+            </div>
+            <input formControlName="testName" type="text" class="form-control">
+          </div>
+
+          <!-- Input Fields --->
+
+          <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 145px;">Description</span>
+            </div>
+            <input formControlName="description" type="text" class="form-control">
+          </div>
+
+          <!-- Input Fields --->
+
+          <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 145px;">Sample name</span>
+            </div>
+            <input formControlName="sampleName" type="text" class="form-control">
+          </div>
+
+          <!-- Input Fields --->
+
+          <div class="input-group mt-3 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 145px;">Unit Price</span>
+            </div>
+            <input formControlName="unitPrice" type="number" class="form-control">
+          </div>
+
+          <!-- Input Fields --->
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

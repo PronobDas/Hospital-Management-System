@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+  <div class="card shadow" style="width: 100%;">
+    <img class="card-img-top p-2" src="https://i.pinimg.com/originals/d0/69/e5/d069e560064ae6a4b6b262a8765c3c19.jpg"
+         alt="Medicine image">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-7"><h5 class="card-title mx-auto">Test Details:</h5></div>
+        <div class="col">
+          <button class="btn btn-success" (click)="updateTest(test.id)"><i class="fas fa-user-edit"></i> Update
+          </button>
+          <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#exampleModal"><i
+            class="fas fa-trash"></i> Delete
+          </button>
+          <!-- Delete Confirmation Modal-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p><b>Are you sure you want to delete?</b></p>
+                  <p>
+                    Test name: <b>{{ test.testName }}</b><br>
+                    Description: <b>{{ test.description }}</b><br>
+                    Sample Name: <b>{{ test.sampleName }}</b><br>
+                    Unit Price: <b>{{ test.unitPrice }}</b>
+                  </p>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal"
+                          (click)="deleteTest(test.id)"><i
+                    class="fas fa-trash"></i> Delete
+                  </button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="far fa-times-circle"></i>
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Delete Confirmation Modal-->
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3"><h6>Test name:</h6></div>
+        <div class="col-md-3">{{ test.testName }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3"><h6>Description:</h6></div>
+        <div class="col-md-3">{{ test.description }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3"><h6>Sample Name:</h6></div>
+        <div class="col-md-3">{{ test.sampleName }}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3"><h6>Unit Price:</h6></div>
+        <div class="col-md-3">{{ test.unitPrice }}</div>
+      </div>
+    </div>
+  </div>
+</div>

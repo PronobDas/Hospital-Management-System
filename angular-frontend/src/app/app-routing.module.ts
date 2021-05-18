@@ -25,6 +25,10 @@ import { MedicineEditComponent } from './components/medicine/medicine-edit/medic
 import { InvoiceListComponent} from './components/invoice/invoice-list/invoice-list.component';
 import {InvoiceComponent} from './components/invoice/invoice.component';
 import {InvoiceAddComponent} from './components/invoice/invoice-add/invoice-add.component';
+import {TestComponent} from './components/test/test.component';
+import {TestAddComponent} from './components/test/test-add/test-add.component';
+import {TestDetailsComponent} from './components/test/test-details/test-details.component';
+import {TestEditComponent} from './components/test/test-edit/test-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -69,6 +73,13 @@ const routes: Routes = [
       { path: 'add', component: MedicineAddComponent },
       { path: 'details/:id', component: MedicineDetailsComponent },
       { path: 'update/:id', component: MedicineEditComponent }
+    ]
+  },
+  {
+    path: 'tests', component: TestComponent, children: [
+      {path: 'add', component: TestAddComponent},
+      {path: 'details/:id', component: TestDetailsComponent},
+      {path: 'update/:id', component: TestEditComponent}
     ]
   },
   {

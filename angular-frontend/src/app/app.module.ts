@@ -41,6 +41,11 @@ import { MedicineService } from './services/medicine.service';
 import { InvoiceListComponent } from './components/invoice/invoice-list/invoice-list.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { InvoiceAddComponent } from './components/invoice/invoice-add/invoice-add.component';
+import { TestDetailsComponent } from './components/test/test-details/test-details.component';
+import { TestListComponent } from './components/test/test-list/test-list.component';
+import { TestEditComponent } from './components/test/test-edit/test-edit.component';
+import { TestComponent } from './components/test/test.component';
+import { TestAddComponent } from './components/test/test-add/test-add.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +80,11 @@ import { InvoiceAddComponent } from './components/invoice/invoice-add/invoice-ad
     InvoiceListComponent,
     InvoiceComponent,
     InvoiceAddComponent,
+    TestDetailsComponent,
+    TestListComponent,
+    TestEditComponent,
+    TestComponent,
+    TestAddComponent,
   ],
   imports: [
     RouterModule,
